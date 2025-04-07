@@ -70,5 +70,30 @@ def bobur_image():
     except FileNotFoundError:
         abort(404)
 
+@app.route("/saloh")
+def saloh():
+    img_tag3 = '<img src="/saloh/image" alt="Saloh rasmi" width="300"><br>'
+
+    info3 = """
+    <h2>Abdullayev Salohiddin</h2>
+    <p>
+        <span style="font-size: 18px;">Age: 16 </span><br>
+        <span style="font-size: 18px;">Interest: Chess</span><br>
+        <span style="font-size: 18px;">Favorite profession: Unknown</span><br>
+        <span style="font-size: 18px;">Hobby: Playing Games</span><br>
+        <span style="font-size: 18px;">Main task: Studying at school</span><br>
+        <span style="font-size: 18px;">Free time: Watch videos and Play Games</span><br>
+    </p>    
+    """
+    return img_tag3 + info3
+
+@app.route("/saloh/image")
+def saloh_image():
+    try:
+        image_path = r"C:\Users\hp\Desktop\qayshiq.jpg"
+        return send_file(image_path, mimetype="image/jpeg")
+    except FileNotFoundError:
+        abort(404)
+
 if __name__ == "__main__":
     app.run(debug=True)
